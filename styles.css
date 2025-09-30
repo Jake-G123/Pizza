@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Roboto, '';
+    background-color: darkred;
+}
+
+main {
+    background-color: white;
+    width: 70%;
+    margin: auto 1rem auto;
+}
+
+header {
+    background-color: lightgrey;
+    padding: 2rem 1rem;
+}
+
+header img {
+    float: right;
+    max-width: 200px;
+}
+
+header h1 {
+    color: darkgreen;
+    font-weight: 600;
+    font-size: 3.5rem;
+}
+
+#tagline {
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+#contact-button {
+    border: none;
+    background-color: darkgreen;
+    color: white;
+    border-radius: 0.25rem;
+    padding: .5rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+fieldset {
+    border: 1px solid darkgreen;
+    padding: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+legend {
+    color: darkgreen;
+    font-variant: small-caps;
+    font-size: 1.5rem;
+    padding-left: 1rem;
+    width: 100%;
+}
