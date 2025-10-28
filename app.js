@@ -41,7 +41,7 @@ app.get('/confirm', (req, res) => { // root can be a dif name than the .html fil
 // define confirmation us root
 app.get('/admin', (req, res) => { // root can be a dif name than the .html file
 
-    res.send(orders);
+    res.render('admin', { orders });
     //res.sendFile(`${import.meta.dirname}/views/admin.html`);
 });
 
