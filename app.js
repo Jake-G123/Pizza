@@ -4,6 +4,8 @@ import express from 'express';
 // Create an instance of an Express application
 const app = express();
 
+app.set('view engine', 'ejs');
+
 // Enable static file serving
 app.use(express.static('public'));
 
@@ -14,7 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 const orders = [];
 
 // Define the port number where our server will listen
-const PORT = 3001;
+const PORT = 3004;
 
 // Define a default "route" ('/')
 // req: contains information about the incoming request
@@ -23,17 +25,17 @@ app.get('/', (req, res) => {
 
     // Send a response to the client
     // res.send(`<h1>Welcome to Poppa\'s Pizza!</h1>`);
-    res.sendFile(`${import.meta.dirname}/views/home.html`);
+    res.render('home');
 });
 
 // define contact us root
 app.get('/contact-us', (req, res) => { // root can be a dif name than the .html file
-    res.sendFile(`${import.meta.dirname}/views/contact.html`);
+    res.render('contact');
 });
 
 // define confirmation us root
 app.get('/confirm', (req, res) => { // root can be a dif name than the .html file
-    res.sendFile(`${import.meta.dirname}/views/confirmation.html`);
+    res.render('confirmation');
 });
 
 // define confirmation us root
@@ -43,8 +45,7 @@ app.get('/admin', (req, res) => { // root can be a dif name than the .html file
     //res.sendFile(`${import.meta.dirname}/views/admin.html`);
 });
 
-app.post('/submit-order', (req, res) => { // root can be a dif name than the .html file
-    res.sendFile(`${import.meta.dirname}/views/confirmation.html`);
+app.post('/submit-order', (req, res) => {
 
     // console.log(req.body);
     const order = {
@@ -54,12 +55,15 @@ app.post('/submit-order', (req, res) => { // root can be a dif name than the .ht
         method: req.body.method,
         toppings: req.body.toppings,
         size: req.body.size,
-        comment: req.body.comment
+        comment: req.body.comment,
+        timestamp: new Date()
     };
 
     // Array of orders
     orders.push(order);
     console.log(orders);
+
+    res.render('confirmation', { order });
 });
 
 // Start the server and make it listen on the port 
