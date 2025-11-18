@@ -7,12 +7,17 @@
 
     <!-- Link to JavaScript -->
     <script src="js/pizza.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+    <script src="//cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
 
     <!-- Favicon -->
     <link rel="icon" href="images/pizza-icon.jpg">
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="styles/pizza-styles.css">
+
+    <link rel="stylesheet" href="//cdn.datatables.net/2.3.4/css/dataTables.dataTables.min.css">
 </head>
 <body>
     <main>
@@ -52,5 +57,9 @@
         </table>
         <a href="/">Place an order</a>
     <main>
+
+    <script defer>
+        let table = new DataTable('#order-table');
+    </script>
 </body>
 </html>
